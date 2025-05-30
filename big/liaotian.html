@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>多人群聊系统</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- 左侧群组栏 -->
+    <div class="sidebar">
+      <h3>群聊列表</h3>
+      <ul id="groupList">
+        <li onclick="switchGroup('默认群')">默认群</li>
+        <li onclick="switchGroup('朋友群')">朋友群</li>
+        <li onclick="switchGroup('工作群')">工作群</li>
+      </ul>
+
+      <!-- 添加新群 -->
+      <div class="add-group">
+        <input type="text" id="groupNameInput" placeholder="新群名称" />
+        <button onclick="addGroup()">添加群聊</button>
+      </div>
+    </div>
+
+    <!-- 右侧聊天区域 -->
+    <div class="chat-container">
+      <div class="chat-header">
+        <h4 id="currentGroupTitle">当前群：默认群</h4>
+      </div>
+      <div class="chat-box" id="chatBox"></div>
+      <ul id="userList" class="user-list"></ul>
+
+      <!-- 输入框 -->
+      <div class="input-box">
+        <input type="text" id="messageInput" placeholder="输入消息..." />
+        <button onclick="sendMessage()">发送</button>
+      </div>
+
+      <!-- 表情面板 -->
+      <div class="emoji-panel" id="emojiContainer"></div>
+
+      <!-- 图片上传 -->
+      <div style="margin-top: 10px;">
+        <input type="file" id="imageInput" accept="image/*" />
+      </div>
+    </div>
+
+    <!-- 黑夜模式开关按钮 -->
+    <div class="dark-mode-toggle">
+      <button id="toggleDarkMode">
+        <span id="darkModeIcon">🌙</span>
+        <span id="darkModeText">开启黑夜模式</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 引入脚本 -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="chat.js"></script>
+</body>
+
+</html>
